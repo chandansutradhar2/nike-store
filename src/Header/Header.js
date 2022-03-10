@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./Header.css";
 
-export function Header() {
+export function Header(props) {
+	console.log(props);
+
 	const navigateTo = (routeUrl) => {
 		alert(routeUrl + " event recieved");
 		console.log(routeUrl);
@@ -13,7 +15,6 @@ export function Header() {
 				<li onClick={() => navigateTo("nikeglobal.com/troubeticket-center")}>
 					<a>Help</a>
 				</li>
-
 				<li
 					onClick={() => {
 						navigateTo("nikeclone.com/career");
@@ -23,13 +24,23 @@ export function Header() {
 					<a>Join Us</a>
 				</li>
 
-				<li
-					onClick={() => {
-						navigateTo("signin");
-					}}
-				>
-					<a>Sign In</a>
-				</li>
+				{props.isLoggedIn ? (
+					<li
+						onClick={() => {
+							navigateTo("signout");
+						}}
+					>
+						<a>Sign Out</a>
+					</li>
+				) : (
+					<li
+						onClick={() => {
+							navigateTo("signin");
+						}}
+					>
+						<a>Sign In</a>
+					</li>
+				)}
 			</ul>
 		</div>
 	);
