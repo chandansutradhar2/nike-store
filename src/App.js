@@ -1,15 +1,38 @@
-import { Footer } from "./Footer/Footer";
-import { Header } from "./Header/Header";
-import { Menubar } from "./Menubar/Menubar";
+import "./App.css";
 
 function App() {
-	return (
-		<div>
-			<Header />
-			<Menubar />
+	const headerStyle = {
+		display: "grid",
+		gridTemplateColumns: "80% 20%",
+		width: "100vw",
+	};
 
-			<h2>Welcome to React App</h2>
-			<Footer />
+	return (
+		<div
+			style={{
+				display: "grid",
+				gridTemplateColumns: "80% 20%",
+				width: "100vw",
+			}}
+		>
+			<ul>
+				<li>
+					<a className="menu">Home</a>
+				</li>
+				<li>
+					<a className="menu">Product</a>
+				</li>
+				<li>
+					<a className="menu">About Us</a>
+				</li>
+			</ul>
+			<div>
+				<ul>
+					<li>
+						<a className="menu">Cart</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	);
 }
