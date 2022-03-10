@@ -8,13 +8,7 @@ function App() {
 	};
 
 	return (
-		<div
-			style={{
-				display: "grid",
-				gridTemplateColumns: "80% 20%",
-				width: "100vw",
-			}}
-		>
+		<div style={headerStyle}>
 			<ul>
 				<li>
 					<a className="menu">Home</a>
