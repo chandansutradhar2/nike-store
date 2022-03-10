@@ -1,5 +1,12 @@
 import { Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 export function SignIn() {
+	let navigate = useNavigate();
+
+	const doLogin = () => {
+		//todo login process
+		navigate("/");
+	};
 	return (
 		<Form>
 			<Form.Group className="mb-3" controlId="formBasicEmail">
@@ -17,7 +24,7 @@ export function SignIn() {
 			<Form.Group className="mb-3" controlId="formBasicCheckbox">
 				<Form.Check type="checkbox" label="Remember Me" />
 			</Form.Group>
-			<Button variant="primary" type="submit">
+			<Button variant="primary" onClick={doLogin}>
 				Login
 			</Button>
 		</Form>
