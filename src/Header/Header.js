@@ -17,6 +17,7 @@ export function Header() {
 				<li
 					onClick={() => {
 						navigateTo("nikeclone.com/career");
+						console.log("Join us clicked");
 					}}
 				>
 					<a>Join Us</a>
@@ -32,5 +33,6 @@ export function Header() {
 			</ul>
 		</div>
 	);
+
 	//return renderUI();
 }
