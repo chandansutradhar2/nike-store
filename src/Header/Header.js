@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-
+import { Link } from "react-router-dom";
 export function Header(props) {
 	console.log(props);
 
@@ -33,8 +33,8 @@ export function Header(props) {
 						<a>Sign Out</a>
 					</li>
 				) : (
-					<li onClick={() => props.onSignInEvent("username:chandan")}>
-						<a>Sign In</a>
+					<li>
+						<Link to="/signin">SignIn</Link>
 					</li>
 				)}
 			</ul>

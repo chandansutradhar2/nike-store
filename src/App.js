@@ -2,6 +2,8 @@ import "./App.css";
 import { Menubar } from "./Menubar/Menubar";
 import { Header } from "./Header/Header";
 import { SignIn } from "./Auth/SignIn/SignIn";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./Home/Home";
 function App() {
 	let show = false;
 	const headerStyle = {
@@ -21,9 +23,15 @@ function App() {
 
 	return (
 		<>
-			<Header isLoggedIn={false} onSignInEvent={signInHandler} />
-			<Menubar />
-			{show ? <SignIn /> : null}
+			<BrowserRouter>
+				<Header isLoggedIn={false} onSignInEvent={signInHandler} />
+				<Menubar />
+
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="signin" element={<SignIn />} />
+				</Routes>
+			</BrowserRouter>
 		</>
 	);
 }
