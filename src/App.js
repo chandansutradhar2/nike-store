@@ -1,5 +1,6 @@
 import "./App.css";
-
+import { Menubar } from "./Menubar/Menubar";
+import { Header } from "./Header/Header";
 function App() {
 	const headerStyle = {
 		display: "grid",
@@ -8,26 +9,10 @@ function App() {
 	};
 
 	return (
-		<div style={headerStyle}>
-			<ul>
-				<li>
-					<a className="menu">Home</a>
-				</li>
-				<li>
-					<a className="menu">Product</a>
-				</li>
-				<li>
-					<a className="menu">About Us</a>
-				</li>
-			</ul>
-			<div>
-				<ul>
-					<li>
-						<a className="menu">Cart</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<>
+			<Header />
+			<Menubar />
+		</>
 	);
 }
 
