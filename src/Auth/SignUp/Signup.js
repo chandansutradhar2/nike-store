@@ -15,7 +15,7 @@ export function SignUp() {
 	});
 
 	const doSignUp = () => {
-		alert("signup done");
+		alert(JSON.stringify(user));
 	};
 	return (
 		<div style={{ width: "100vw", height: "100vh", justifyContent: "center" }}>
@@ -39,7 +39,12 @@ export function SignUp() {
 						<Form.Control
 							type="text"
 							value={user.firstName}
-							onChange={(ev) => setUser(ev.target.value)}
+							onChange={(e) =>
+								setUser((prevState) => ({
+									...prevState,
+									firstName: e.target.value,
+								}))
+							}
 						/>
 					</Form.Group>
 
@@ -48,7 +53,12 @@ export function SignUp() {
 						<Form.Control
 							type="text"
 							value={user.lastName}
-							onChange={(ev) => setUser(ev.target.value)}
+							onChange={(e) =>
+								setUser((prevState) => ({
+									...prevState,
+									lastName: e.target.value,
+								}))
+							}
 						/>
 					</Form.Group>
 
@@ -58,7 +68,12 @@ export function SignUp() {
 							type="email"
 							value={user.email}
 							placeholder="Enter email"
-							onChange={(ev) => setUser(ev.target.value)}
+							onChange={(e) =>
+								setUser((prevState) => ({
+									...prevState,
+									email: e.target.value,
+								}))
+							}
 						/>
 						<Form.Text className="text-muted">
 							We'll never share your email with anyone else.
@@ -71,7 +86,12 @@ export function SignUp() {
 							type="password"
 							value={user.password}
 							placeholder="Password"
-							onChange={(ev) => setUser(ev.target.value)}
+							onChange={(e) =>
+								setUser((prevState) => ({
+									...prevState,
+									password: e.target.value,
+								}))
+							}
 						/>
 					</Form.Group>
 					<Form.Group className="mb-3" controlId="formBasicEmail">
@@ -79,7 +99,12 @@ export function SignUp() {
 						<Form.Control
 							type="tel"
 							value={user.mobileNo}
-							onChange={(ev) => setUser(ev.target.value)}
+							onChange={(e) =>
+								setUser((prevState) => ({
+									...prevState,
+									mobileNo: e.target.value,
+								}))
+							}
 						/>
 						<Form.Text className="text-muted">10 digit mobile No</Form.Text>
 					</Form.Group>
