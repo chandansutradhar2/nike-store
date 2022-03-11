@@ -2,6 +2,7 @@ import { useState, createRef, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ErrorComponent } from "../../ErrorDialog/ErrorComponent";
+import axios from "axios";
 
 export function SignIn() {
 	const remeberMe = useRef(false);
@@ -13,8 +14,21 @@ export function SignIn() {
 	console.log("SignIn Function loaded");
 	const doLogin = () => {
 		//todo login process
-		console.log(email, password, remeberMe.current.checked);
-		navigate("/");
+		if (email.length > 0 && password.length > 0) {
+			axios
+				.post("http://localhost:8000/user/authenticate", {
+					email: email,
+					password: password,
+				})
+				.then((res) => {
+					alert("login success");
+				})
+				.catch((err) => {
+					alert("login error");
+				});
+		} else {
+			console.log("enter email/password");
+		}
 	};
 
 	return (

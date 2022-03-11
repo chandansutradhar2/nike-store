@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, createRef, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +17,22 @@ export function SignUp() {
 
 	const doSignUp = () => {
 		alert(JSON.stringify(user));
+		axios
+			.post("http://localhost:8000/user/register", {
+				firstName: user.firstName,
+				lastName: user.lastName,
+				email: user.email,
+				mobileNo: user.mobileNo,
+				password: user.password,
+			})
+			.then((r) => {
+				console.log(r);
+				alert("account created successfully");
+			})
+			.catch((err) => {
+				console.log(err);
+				alert("unable to create your account");
+			});
 	};
 	return (
 		<div style={{ width: "100vw", height: "100vh", justifyContent: "center" }}>
