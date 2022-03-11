@@ -23,7 +23,7 @@ export function SignIn() {
 				})
 				.then((res) => {
 					if (res.data.result && res.data.token) {
-						sessionStorage.setItem("token", res.data.token);
+						localStorage.setItem("token", res.data.token);
 						alert("welcome back");
 						navigate("/");
 					}
