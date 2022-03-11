@@ -3,6 +3,7 @@ import { useState, createRef, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ErrorComponent } from "../../ErrorDialog/ErrorComponent";
+import { envConfig } from "../../Utlity/env.config";
 
 export function SignUp() {
 	let navigate = useNavigate();
@@ -18,7 +19,7 @@ export function SignUp() {
 	const doSignUp = () => {
 		alert(JSON.stringify(user));
 		axios
-			.post("http://localhost:8000/user/register", {
+			.post(envConfig.apiUrl + "user/register", {
 				firstName: user.firstName,
 				lastName: user.lastName,
 				email: user.email,

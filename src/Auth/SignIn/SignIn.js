@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ErrorComponent } from "../../ErrorDialog/ErrorComponent";
 import axios from "axios";
+import { envConfig } from "../../Utlity/env.config";
 
 export function SignIn() {
 	const remeberMe = useRef(false);
@@ -16,7 +17,7 @@ export function SignIn() {
 		//todo login process
 		if (email.length > 0 && password.length > 0) {
 			axios
-				.post("http://localhost:8000/user/authenticate", {
+				.post(envConfig.apiUrl + "user/authenticate", {
 					email: email,
 					password: password,
 				})
