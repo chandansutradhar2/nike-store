@@ -22,7 +22,11 @@ export function SignIn() {
 					password: password,
 				})
 				.then((res) => {
-					alert("login success");
+					if (res.data.result && res.data.token) {
+						sessionStorage.setItem("token", res.data.token);
+						alert("welcome back");
+						navigate("/");
+					}
 				})
 				.catch((err) => {
 					alert("login error");
